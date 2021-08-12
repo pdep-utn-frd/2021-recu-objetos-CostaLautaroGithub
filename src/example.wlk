@@ -63,7 +63,10 @@ class Jugador {
 		
 		method habil(eficaciatriples, talentos, altura,essucio) {
 			var cant
-			cant = talentos.size{talentos.filter{x => x.lenght()}}
+			var tal
+			
+			tal = talentos.filter{x => x.lenght() > 10}
+			cant = tal.size()
 			return(altura * 0.75 + eficaciatriples * 0.25) * cant		}
 			
 			
@@ -127,13 +130,14 @@ class Jugador {
  			
  	object partido {
  		
- 		
+ 		var equipo1 
+ 		var equipo2
  		
  		
  		
  		method ganador()	{
  			
- 			
+ 			contendientes.max{x => x.valoracion()}
  			
  			
  			
