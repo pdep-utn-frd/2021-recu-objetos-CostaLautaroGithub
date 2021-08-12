@@ -14,4 +14,4 @@ test "tito tiene 3600 puntos de habilidad"	{
 	assert.equals(3600, tito.habilidad())
 	
 }	
-		}
+		} 

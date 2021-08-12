@@ -118,7 +118,7 @@ class Jugador {
  	
  	class Retirado inherits Entrenador {
  		
- 		
+ 		 
  		override method habilidad(){return  antiguedad * 4	}
  			
  			}
