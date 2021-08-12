@@ -1,0 +1,17 @@
+import example.*
+
+describe "Tests" {
+
+		var jorge = new Retirado(torneosganados = 53, origen = zarate, antiguedad = 45)
+		var tito = new Jugador(origen = zarate, altura = 180, eficaciatriples = 3,posicion = corredor, talentos = [velocidad], essucio = false )
+
+
+
+test  "jorge tiene 180 puntos de habilidad" {
+		assert.equals(180, jorge.habilidad())}
+		
+test "tito tiene 3600 puntos de habilidad"	{	
+	assert.equals(3600, tito.habilidad())
+	
+}	
+		}

@@ -1,4 +1,5 @@
-class equipo {
+
+class Equipo {
 	
 	var property localidad
 	const equipo = []
@@ -10,34 +11,28 @@ class equipo {
 		var tamanio
 		var hab
 		 tamanio= equipo.size()
-		 hab = equipo.sum{x => x.habilidad()}
+		 hab = equipo.sum { x => x.habilidad() }
 		 return hab / tamanio
+		
+		}
+	method puntaje() {self.valoracion().truncate(0)}
 		
 		
 		
 	}
-		
-	
-	
-	
-	
-}
 
-
-
-
-
+																									//	{}	[]
 
 class Jugador {
 	
-	var property nombre
+
 	var property origen
 	var altura 
 	var eficaciatriples
 	var property posicion
 	const talentos = []
 	var essucio
-	
+//	var tito = new Jugador(origen = zarate, altura = 180, eficaciatriples = 3,posicion = corredor, talentos = [velocidad], essucio = false )
 	
 	method habilidad() {
 		return posicion.habil(eficaciatriples, talentos, altura,essucio)
@@ -62,12 +57,12 @@ class Jugador {
 	object pasador {
 		
 		method habil(eficaciatriples, talentos, altura,essucio) {
-			var cant
+			
 			var tal
 			
-			tal = talentos.filter{x => x.lenght() > 10}
-			cant = tal.size()
-			return(altura * 0.75 + eficaciatriples * 0.25) * cant		}
+			tal = talentos.count{x => x.lenght() > 10}
+			
+			return(altura * 0.75 + eficaciatriples * 0.25) * tal		}
 			
 			
 		}
@@ -89,13 +84,13 @@ class Jugador {
 			 return altura * 20 //su tarea es correr y distraer, por lo que lo unico que importa es su traccion y su centro de masa.
 			
 		}		//En este programa el polimorfismo se usa en los objetos que refieren a la posicion, ya que tiene un unico metodo con igual nombre en todos, y en este se ingresan los mismos parametros iniciales, por lo que pueden ser llamados todos desde la misma invocacion de method.
-		}
+		}		//En la herencia es importante usar polimorfismo porque al instanciar estas nuevas clases, sera posible referir a los methods de todas usando los mismos parametros de invocacion.
  class Entrenador {
  	
- 	var property nombre
+ 
  	var property torneosganados
  	var property origen
- 	var property antiguedad
+ 	var  antiguedad
 
  	
  	
@@ -116,9 +111,9 @@ class Jugador {
  		
  	class Sabe inherits Entrenador {
  		
- 																									//	{}
+ 																									//	{}	[]
  		override method habilidad(){return  torneosganados + antiguedad	}
- 			method ganartrofeos(x){torneosganados += x}
+ 			method ganartrofeos(x){ torneosganados += x }
  			}
  	
  	class Retirado inherits Entrenador {
@@ -130,22 +125,30 @@ class Jugador {
  			
  	object partido {
  		
- 		var equipo1 
- 		var equipo2
+ 		 var equipouno
+ 		 var equipodos
  		
  		
- 		
+ 		method perdedor()	{
+ 			
+ 			if (equipouno.puntaje() > equipodos.puntaje()) {return equipodos}
+ 			else {return equipouno}
+ 			
+ 			}
  		method ganador()	{
  			
- 			contendientes.max{x => x.valoracion()}
+ 			if (equipouno.puntaje() < equipodos.puntaje()) {return equipodos}
+ 			else {return equipouno}
+ 			}
+ 		method victoriaaplastante(){
  			
- 			
+ 			return (self.ganador().puntaje() >= self.perdedor().puntaje() + 20)
+ 		}	
  			
  		}
- 	}
  	
- 	
- 
+ 	object zarate {}
+ 	object velocidad{}
  	
  	
  
